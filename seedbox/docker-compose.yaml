@@ -38,9 +38,8 @@ services:
 
   nzbget:
     container_name: nzbget
-    image: linuxserver/nzbget:latest
+    image: ghcr.io/linuxserver/nzbget:latest
     restart: always
-    network_mode: host
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
