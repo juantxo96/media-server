@@ -80,7 +80,7 @@ services:
 
   plex-server:
     container_name: plex-server
-    image: plexinc/pms-docker:latest
+    image: ghcr.io/linuxserver/plex
     restart: always
     environment:
       - TZ=${TZ}
