@@ -77,15 +77,3 @@ services:
       - ${ROOT}/downloads:/downloads
     ports:
       - 8989:8989
-
-  plex-server:
-    container_name: plex-server
-    image: plexinc/pms-docker:latest
-    restart: unless-stopped
-    environment:
-      - TZ=${TZ}
-    network_mode: host
-    volumes:
-      - ${ROOT}/config/plex/db:/config
-      - ${ROOT}/config/plex/transcode:/transcode
-      - ${ROOT}/complete:/data
