@@ -13,8 +13,8 @@ services:
       - TZ=${TZ}
       - DELUGE_LOGLEVEL=error #optional
     volumes:
-      - ${ROOT}/downloads:/downloads
-      - ${ROOT}/config/deluge:/config
+      - /home/${USER}/seedbox/deluge:/config
+      - /data:/downloads
     ports:
       - 8112:8112
       - 6881:6881
@@ -31,22 +31,9 @@ services:
       - AUTO_UPDATE=true
       - RUN_OPTS=<run options here>
     volumes:
-      - ${ROOT}/downloads/torrent-blackhole:/downloads
-      - ${ROOT}/config/jackett:/config
+      - /home/${USER}/seedbox/jackett:/config
     ports:
       - 9117:9117
-
-  nzbget:
-    container_name: nzbget
-    image: ghcr.io/linuxserver/nzbget:latest
-    restart: always
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${ROOT}/downloads:/downloads
-      - ${ROOT}/config/nzbget:/config
 
   radarr:
     container_name: radarr
@@ -57,9 +44,8 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ${ROOT}/config/radarr:/config
-      - ${ROOT}/complete/movies:/movies
-      - ${ROOT}/downloads:/downloads
+      - /home/${USER}/seedbox/radarr:/config
+      - /data:/downloads
     ports:
       - 7878:7878
 
@@ -72,8 +58,7 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
     volumes:
-      - ${ROOT}/config/sonarr:/config
-      - ${ROOT}/complete/tv:/tv
-      - ${ROOT}/downloads:/downloads
+      - /home/${USER}/seedbox/sonarr:/config
+      - /data:/downloads
     ports:
       - 8989:8989
