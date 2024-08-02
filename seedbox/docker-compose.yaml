@@ -89,3 +89,16 @@ services:
       - ${ROOT}/config/plex/db:/config
       - ${ROOT}/config/plex/transcode:/transcode
       - ${ROOT}/complete:/data
+
+  xteve:
+    image: alturismo/xteve_g2g_owi
+    container_name: xteve
+    ports:
+      - "34400:34400"
+    volumes:
+      - ${ROOT}/config/xteve:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    restart: always
