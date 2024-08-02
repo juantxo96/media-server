@@ -91,7 +91,7 @@ services:
       - ${ROOT}/complete:/data
 
   xteve:
-    image: alturismo/xteve_g2g_owi
+    image: dnsforge/xteve
     container_name: xteve
     ports:
       - "34400:34400"
