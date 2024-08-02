@@ -91,7 +91,7 @@ services:
       - ${ROOT}/complete:/data
 
   xteve:
-    image: dnsforge/xteve
+    image: senexcrenshaw/xteve:latest
     container_name: xteve
     ports:
       - "34400:34400"
